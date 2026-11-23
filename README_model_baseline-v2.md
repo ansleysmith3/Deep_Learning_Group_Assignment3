@@ -117,4 +117,4 @@ To push whole-number validation accuracy beyond **76.20%**, test these modificat
 3. **Why Output Layers Must Be Named:**  
    `load_data.py` yields `y` as a dictionary (`{"length": ..., "digit1": ..., ..., "digit5": ...}`). Naming each Keras `Dense` head identically lets Keras match each target tensor to its loss function automatically.
 4. **How Inference Decoding Works:**  
-   At test time, we compute $\hat{L} = Argmax((preds["length"]), take Argmax over only the first $\hat{L}$ digit heads (`digit1` … `digit_L̂`), and concatenate them via `load_data.decode()`.
+   At test time, we compute $\hat{L} = Argmax(length), take Argmax over only the first $\hat{L}$ digit heads (`digit1` … `digit_L̂`), and concatenate them via `load_data.decode()`.
