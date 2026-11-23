@@ -16,6 +16,8 @@ Turns the raw SVHN images into 64×64 arrays with one label per softmax output.
 
 `data/` is in `.gitignore`. Everyone runs step 3 on their own machine.
 
+**All-in-one option:** `svhn_pipeline.py` is all the scripts above pasted into one file, in the order they run, so you can read the whole pipeline top to bottom. `python data_pipeline/svhn_pipeline.py` runs every step; add `--step explore|preprocess|check|figures` to run just one. It writes exactly the same files as the small scripts. The small scripts are still the official version, and model code should keep importing from `load_data.py`.
+
 ## The hand-off (for the model)
 
 ```python
