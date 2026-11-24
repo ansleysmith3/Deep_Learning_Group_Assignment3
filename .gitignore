@@ -1,0 +1,18 @@
+data/
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+*.h5
+
+*.pptx
+model_baseline_ximin.py
+
+# Raw SVHN download (extracted zip) — regenerate via SVHN.zip or re-download, not git-tracked
+SVHN/
+SVHN.zip
+
+# Experiment checkpoints are reproducible from run_experiment.py + experiment_log.csv;
+# keep the repo lean. Ximin's shared artifacts/baseline_best.keras is the one exception.
+experiments/*/model_best.keras

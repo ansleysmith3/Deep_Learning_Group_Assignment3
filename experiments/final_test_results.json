@@ -1,0 +1,14 @@
+{
+  "model_path": "experiments\\combined\\model_best.keras",
+  "whole_number_accuracy": 0.8265993265993266,
+  "correct": 10802,
+  "n": 13068,
+  "per_head_accuracy": {
+    "length": 0.9654882154882155,
+    "digit1": 0.918732782369146,
+    "digit2": 0.9109274563820018,
+    "digit3": 0.9595959595959596,
+    "digit4": 0.9946434037343128,
+    "digit5": 0.9998469543924089
+  }
+}
