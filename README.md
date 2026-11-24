@@ -8,6 +8,9 @@ backbone feeding `k+1` softmax heads (a length head + one head per digit positio
 **Deliverable:** a presentation only — no code is submitted. This repo is the team's working
 space; see each person's README for the detail behind their slides.
 
+**Status: done.** All three sections are merged into `main`; the final model, test-set
+result, and error analysis below are the real, final numbers — not placeholders.
+
 ## Team & role split
 
 | Person | Role | Branch | README |
@@ -16,10 +19,9 @@ space; see each person's README for the detail behind their slides.
 | Ximin | Model & training — the multi-output CNN + baseline | `ximin-model` | [`README_model_baseline-v2.md`](README_model_baseline-v2.md) |
 | Becca | Experiments, final evaluation, error analysis, deck | `Rebecca` | [`Rebecca/README_person3.md`](Rebecca/README_person3.md) |
 
-**Branch status:** `main` is still the empty starter branch. `Rebecca` is the most complete
-branch — it's based on `ximin-model` (which already includes `ansley-data`), plus the
-experiment/eval/error-analysis toolkit below. Merge `Rebecca` into `main` once everyone's
-happy with it, since `main` doesn't have any of the three people's work yet.
+**Branch status:** `main` now has everything — `ansley-data`, `ximin-model`, and `Rebecca`
+were merged into it. The per-person branches above still exist for history/authorship, but
+`main` is the branch to check out for the finished pipeline.
 
 ## Repo layout
 
@@ -56,7 +58,7 @@ data/                     NOT in git (.gitignore) — everyone generates this lo
 
 ## Setup — reproducing this from scratch
 
-1. **Get the code**: clone/pull this repo, check out `Rebecca` (or merge it into `main` first).
+1. **Get the code**: clone/pull this repo and check out `main` — everything is merged there.
 2. **Install dependencies**: `tensorflow >= 2.16`, `numpy`, `matplotlib`, `pillow`.
    > TensorFlow ≥2.11 has no GPU support on native Windows — expect CPU-only training
    > (~40 minutes per full run) unless you use Colab or WSL2.
@@ -71,9 +73,9 @@ data/                     NOT in git (.gitignore) — everyone generates this lo
    python data_pipeline/preprocess.py     # writes data/processed/{train,val,test}.npz (~600MB)
    python data_pipeline/check_handoff.py  # sanity-checks labels + shapes
    ```
-5. **Get the baseline checkpoint**: `artifacts/baseline_best.keras` is tracked in git (an
-   explicit exception to `.gitignore`'s `*.keras` rule) — pull it from the `ximin-model` or
-   `Rebecca` branch rather than retraining the ~40-minute baseline yourself, unless you want to.
+5. **Get the baseline checkpoint**: `artifacts/baseline_best.keras` is tracked in git on
+   `main` (an explicit exception to `.gitignore`'s `*.keras` rule), so a plain checkout
+   gives it to you — no need to retrain the ~40-minute baseline yourself.
 6. **Run experiments / final eval / error analysis** — see
    [`Rebecca/README_person3.md`](Rebecca/README_person3.md) for the exact commands.
 
@@ -91,7 +93,7 @@ data/                     NOT in git (.gitignore) — everyone generates this lo
 - **Validation has zero 5-digit examples** (train only has 9) — val accuracy can't actually
   verify 5-digit generalization; a real caveat to mention in the deck.
 
-## Results so far
+## Results
 
 | Run | Change | Val whole-number accuracy | Notes |
 |---|---|---|---|
